@@ -13,7 +13,7 @@ const { PORT, MONGO_ADRESS } = require('./utils/constants');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://api.diplom-pavel.nomoredomains.icu',
   credentials: true,
 }));
 
