@@ -80,9 +80,9 @@ const login = async (req, res, next) => {
       return next(new UnauthorizedError('Неверный email или пароль'));
     }
 
-    const token = await jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'SECRET');
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'SECRET');
 
-    await res.cookie('jwt', token, {
+    res.cookie('jwt', token, {
       maxAge: 360000 * 24 * 7,
       httpOnly: true,
       sameSite: 'None',

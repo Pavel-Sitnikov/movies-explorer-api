@@ -22,12 +22,13 @@ router.use(requestLogger);
 
 router.post('/signup', validationCreateUser, createUser);
 router.post('/signin', validationLoginUser, login);
-router.get('/signout', logout);
 
 router.use(auth);
 
-router.use(auth, userRouter);
-router.use(auth, movieRouter);
+router.get('/signout', logout);
+
+router.use(userRouter);
+router.use(movieRouter);
 
 router.use((req, res, next) => {
   next(new NotFoundError('Страница не найдена'));

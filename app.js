@@ -8,7 +8,7 @@ const rateLimit = require('./middlewares/requestLimiter');
 
 const routes = require('./routes/index');
 
-const { PORT, MONGO_ADRESS } = require('./utils/constants');
+const { PORT, MONGO_ADRESS } = process.env;
 
 const app = express();
 
