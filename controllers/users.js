@@ -97,7 +97,12 @@ const login = async (req, res, next) => {
 
 const logout = async (req, res, next) => {
   try {
-    res.clearCookie('jwt');
+    res.clearCookie('jwt', {
+      maxAge: 360000 * 24 * 7,
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None',
+    });
     return res.send();
   } catch (err) {
     return next(err);
