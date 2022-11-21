@@ -13,7 +13,7 @@ const { PORT = 3000, MONGO_ADRESS = 'mongodb://localhost:27017/moviesdb' } = pro
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://diplom-pavel.nomoredomains.icu',
   credentials: true,
 }));
 
